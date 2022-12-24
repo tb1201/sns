@@ -17,14 +17,16 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>-->
         
-        <!--<script src="{{ secure_asset('js/app.js') }}" defer></script>-->
-        <!--<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">-->
+        <!--<script src="" defer></script>-->
+        <!--<link href="" rel="stylesheet">-->
     </head>
 
     <body>
+        <div id="app">
+            @yield('content')
+        </div>
         
-        @yield('content')
-        
+        <script src="{{ mix('js/app.js') }}"></script>
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>-->
