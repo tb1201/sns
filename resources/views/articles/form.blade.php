@@ -5,6 +5,8 @@
 </div>
 <div class="form-group"><!--タグ表示-->
   <article-tags-input
+  :initial-tags='@json($tagNames ?? [])'
+  :autocomplete-items='@json($allTagNames ?? [])'
   >
   </article-tags-input>
 </div>
