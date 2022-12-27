@@ -34,6 +34,12 @@ Route::controller(ArticleController::class)->prefix('articles')->name('articles.
 use App\Http\Controllers\TagController;
 Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 
+//ユーザーページ
+use App\Http\Controllers\UserController;
+Route::controller(UserController::class)->prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'show')->name('show');
+});
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
