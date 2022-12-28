@@ -38,10 +38,13 @@ Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 use App\Http\Controllers\UserController;
 Route::controller(UserController::class)->prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'show')->name('show');
-    //フォロー
+    //マイページのいいねタブ
+    Route::get('/{name}/likes', 'likes')->name('likes');
+    //フォロー中、フォロワーの一覧
+    Route::get('/{name}/followings', 'followings')->name('followings');
+    Route::get('/{name}/followers', 'followers')->name('followers');
+    //フォロー機能
     Route::middleware('auth')->group(function () {
-    //Route::put('/{name}/follow', 'follow')->name('follow')->middleware('auth');
-    //Route::delete('/{name}/follow', 'unfollow')->name('unfollow')->middleware('auth');
         Route::put('/{name}/follow', 'follow')->name('follow');
         Route::delete('/{name}/follow', 'unfollow')->name('unfollow');
     });
