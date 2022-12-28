@@ -40,13 +40,18 @@
 
 import './bootstrap'
 import Vue from 'vue'
+//いいね機能
 import ArticleLike from './components/ArticleLike.vue'
+//タグ機能
 import ArticleTagsInput from './components/ArticleTagsInput'
+//フォロー機能
+import FollowButton from './components/FollowButton'
 
 const app = new Vue({
   el: '#app',
   components: {
     ArticleLike,
     ArticleTagsInput,
+    FollowButton,
   }
 })

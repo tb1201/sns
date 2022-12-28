@@ -38,6 +38,13 @@ Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 use App\Http\Controllers\UserController;
 Route::controller(UserController::class)->prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'show')->name('show');
+    //フォロー
+    Route::middleware('auth')->group(function () {
+    //Route::put('/{name}/follow', 'follow')->name('follow')->middleware('auth');
+    //Route::delete('/{name}/follow', 'unfollow')->name('unfollow')->middleware('auth');
+        Route::put('/{name}/follow', 'follow')->name('follow');
+        Route::delete('/{name}/follow', 'unfollow')->name('unfollow');
+    });
 });
 
 Auth::routes();
