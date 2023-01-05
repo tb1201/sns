@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand navbar-dark blue-gradient">
+<nav class="navbar navbar-expand navbar-light">
     
 
-    <a class="navbar-brand" href="/"><i class="far fa-sticky-note mr-1"></i>memo</a>
+    <a class="navbar-brand" href="/"><img src="{{ asset('img/coffee_icon32.png')}}" class=""></a>
     
     <ul class="navbar-nav ml-auto">
     

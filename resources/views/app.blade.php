@@ -17,6 +17,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet"/>-->
         
+        <link href="{{ secure_asset('css/article.css') }}" rel="stylesheet">
         <!--<script src="" defer></script>-->
         <!--<link href="" rel="stylesheet">-->
     </head>

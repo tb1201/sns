@@ -15,8 +15,16 @@
   <textarea name="body" required class="form-control" rows="16" placeholder="本文">{{ $article->body ?? old('body') }}</textarea>
 </div>
 <div class="form-group row">
-    <label class="col-md-1">画像</label>
+    <label class="col-md-1" for="image">画像</label>
     <div class="col-md-11">
-        <input type="file" name="image" class="form-control-file">
+        <input type="file" class="form-control-file" name="image">
+        <div class="form-text text-info">
+            {{ $article->image_path }}
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
+            </label>
+        </div>
     </div>
 </div>

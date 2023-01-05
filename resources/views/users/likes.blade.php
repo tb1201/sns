@@ -9,8 +9,12 @@
     
     @include('users.tabs', ['hasArticles' => false, 'hasLikes' => true])
     
-    @foreach($articles as $article)
-      @include('articles.card')
-    @endforeach
+    <div class="py-5 bg-gray">
+      <div class="row">
+        @foreach($articles as $article)
+          @include('articles.card')
+        @endforeach
+      </div>
+    </div>
   </div>
 @endsection

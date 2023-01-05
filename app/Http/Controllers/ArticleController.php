@@ -36,6 +36,20 @@ class ArticleController extends Controller
     
     public function store(ArticleRequest $request, Article $article)
     {
+        // フォームから画像が送信されてきたら、保存して、$article->image_path に画像のパスを保存する
+        $form = $request->all();
+        if (isset($form['image'])) {
+            $path = $request->file('image')->store('public/image');
+            $article->image_path = basename($path);
+        } else {
+            $article->image_path = null;
+        }
+        
+        // フォームから送信されてきた_tokenを削除する
+        unset($form['_token']);
+        // フォームから送信されてきたimageを削除する
+        unset($form['image']);
+        
         $article->fill($request->all());
         $article->user_id = $request->user()->id;
         $article->save(); //テーブルへレコード登録
@@ -70,7 +84,22 @@ class ArticleController extends Controller
     
     public function update(ArticleRequest $request, Article $article)
     {
-        $article->fill($request->all())->save();
+        // 送信されてきたフォームデータを格納する
+        $article_form = $request->all();
+
+        if ($request->remove == 'true') {
+            $article->image_path = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $article->image_path = basename($path);
+        }
+
+        unset($article_form['image']);
+        unset($article_form['remove']);
+        unset($article_form['_token']);
+
+        // 該当するデータを上書きして保存する
+        $article->fill($article_form)->save();
         
         //タグ更新
         $article->tags()->detach();
