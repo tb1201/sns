@@ -9,7 +9,7 @@
     
     @include('users.tabs', ['hasArticles' => false, 'hasLikes' => true])
     
-    <div class="py-5 bg-gray">
+    <div class="py-5">
       <div class="row">
         @foreach($articles as $article)
           @include('articles.card')

@@ -4,6 +4,89 @@
     display: block;
 }
 
-.bg-gray {
-    background-color: #f8f9fa;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+//   background-color: #f5f5f5;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.white_space {
+    white-space:pre-line;
+}
+
+.line-limit {
+  color: black;
+  height: calc(1.5em * 2); /* 制限したい行数が2の場合 */
+  line-height: 1.5em; /* heightと同じ値にする */
+  overflow: hidden;
+  position: relative;
+  word-wrap: break-word;
+}
+.line-limit span {
+  margin-right: 1em;
+}
+.line-limit::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 30% /* 背景色 */
+  );
+  bottom: 0;
+  content: "…";
+  padding-left: 1em;
+  position: absolute;
+  right: 0;
+}
+.line-limit::after {
+  background: #fff; /* 背景色 */
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.line-limit-tag {
+  color: black;
+  height: calc(1.5em * 1); /* 制限したい行数が2の場合 */
+  line-height: 1.5em; /* heightと同じ値にする */
+  overflow: hidden;
+  position: relative;
+  word-wrap: break-word;
+}
+.line-limit-tag span {
+  margin-right: 1em;
+}
+.line-limit-tag::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 30% /* 背景色 */
+  );
+  bottom: 0;
+  content: "…";
+  padding-left: 1em;
+  position: absolute;
+  right: 0;
+}
+.line-limit-tag::after {
+  background: #fff; /* 背景色 */
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }

@@ -5,10 +5,10 @@
 @section('content')
     @include('nav')
     <div>
-        <img src="{{ asset('img/janos-venczak-s_PBKeHyv68-unsplash.jpg')}}" class="img-fluid">
+        <img src="{{ asset('img/cafe-1869656_.jpg')}}" class="img-fluid">
     </div>
     
-    <div class="py-5 bg-gray">
+    <div class="py-5">
         <div class="container">
             <div class="row">
                 @foreach($articles as $article)

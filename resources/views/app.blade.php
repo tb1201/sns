@@ -41,4 +41,10 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
         <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>-->
     </body>
+    
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy;2023 Yutaka Suzuki</p>
+      </div>
+    </footer>
 </html>

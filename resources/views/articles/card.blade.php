@@ -2,6 +2,8 @@
   <div class="card mb-4 shadow-sm">
     @if ($article->image_path)
         <img class="card-img-top card-img-size" src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+    @else
+        <img class="card-img-top card-img-size" src="{{ secure_asset('img/20200501_noimage.png') }}">
     @endif
     
     <div class="card-body d-flex flex-row">
@@ -63,13 +65,13 @@
   
     </div>
     
-    <div class="card-body pt-0">
-      <h3 class="h4 card-title">
+    <div class="card-body pt-0 pb-2">
+      <h5 class="h5 card-title mb-2">
         <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
           {{ $article->title }}
         </a>
       </h3>
-      <div class="card-text">
+      <div class="card-text line-limit">
         {{ $article->body }}
       </div>
     </div>
@@ -86,19 +88,15 @@
       </div>
     </div>
     
-    @foreach($article->tags as $tag)
-      @if($loop->first)
-        <div class="card-body pt-0 pb-4 pl-3">
-          <div class="card-text line-height">
-      @endif
-            <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
-              {{ $tag->hashtag }}
-            </a>
-      @if($loop->last)
-          </div>
-        </div>
-      @endif
-    @endforeach
+    <div class="card-body pt-0 pb-2 pl-3">
+      <div class="card-text line-height line-limit-tag">
+        @foreach($article->tags as $tag)
+                <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
+                  {{ $tag->hashtag }}
+                </a>
+        @endforeach
+      </div>
+    </div>
     
   </div>
 </div>

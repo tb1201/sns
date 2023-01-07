@@ -13,8 +13,13 @@
         </div>
       </div>
     </div>
-    @foreach($tag->articles as $article)
-      @include('articles.card')
-    @endforeach
+    
+    <div class="py-5">
+      <div class="row">
+        @foreach($tag->articles as $article)
+          @include('articles.card')
+        @endforeach
+      </div>
+    </div>
   </div>
 @endsection
