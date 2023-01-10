@@ -1,34 +1,45 @@
 .card-img-size {
-    height: 225px;
-    width: 100%;
-    display: block;
+  overflow: hidden;
+  height: 225px;
+  width: 100%;
+  position: relative;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
+.card-img-size img{
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-//   background-color: #f5f5f5;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  // max-height: 100%;
+  width: auto;
+  height: auto;
+  
+  //mouseover
+  cursor: pointer;
+  transition-duration: 0.3s;
 }
-/* Sticky footer styles
--------------------------------------------------- */
+
+//mouseover
+.card-img-size:hover img{
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+.card-title-style {
+  text-decoration: underline;
+}
+.card-title-style a {
+  font-weight: bold;
+}
 
 .white_space {
     white-space:pre-line;
 }
 
+// 記事行数表示制限
 .line-limit {
   color: black;
   height: calc(1.5em * 2); /* 制限したい行数が2の場合 */
@@ -60,9 +71,10 @@ body {
   width: 100%;
 }
 
+//tag表示制限
 .line-limit-tag {
   color: black;
-  height: calc(1.5em * 1); /* 制限したい行数が2の場合 */
+  height: calc(1.5em * 1); /* 制限したい行数が1の場合 */
   line-height: 1.5em; /* heightと同じ値にする */
   overflow: hidden;
   position: relative;
@@ -89,4 +101,11 @@ body {
   height: 100%;
   position: absolute;
   width: 100%;
+}
+
+// 記事詳細幅
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
 }

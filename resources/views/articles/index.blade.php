@@ -4,8 +4,14 @@
 
 @section('content')
     @include('nav')
-    <div>
-        <img src="{{ asset('img/cafe-1869656_.jpg')}}" class="img-fluid">
+    <!--slide show-->
+    <div id="slide-container">
+        <h1>Iwate<br> Coffee Shop Exploration</h1>
+        <div class="slide">
+          <img src="{{ secure_asset('img/cafe-7588632_1280.jpg') }}" alt="">
+          <img src="{{ secure_asset('img/coffee-4585744_1280.jpg') }}" alt="">
+          <img src="{{ secure_asset('img/cafe-1869656_1280.jpg') }}" alt="">
+        </div>
     </div>
     
     <div class="py-5">

@@ -1,17 +1,25 @@
 <div class="col-md-4">
-  <div class="card mb-4 shadow-sm">
+  <div class="card my-4 shadow-sm">
     @if ($article->image_path)
-        <img class="card-img-top card-img-size" src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+      <div class="card-img-top card-img-size">
+        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
+          <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+        </a>
+      </div>
     @else
-        <img class="card-img-top card-img-size" src="{{ secure_asset('img/20200501_noimage.png') }}">
+      <div class="card-img-top card-img-size">
+        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
+          <img src="{{ secure_asset('img/20200501_noimage.png') }}">
+        </a>
+      </div>
     @endif
     
     <div class="card-body d-flex flex-row">
-      <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-      <i class="fas fa-user-circle fa-3x mr-1"></i>
+      <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark mouseover">
+        <i class="fas fa-user-circle fa-3x mr-1"></i>
       </a>
       <div>
-        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark mouseover">
           <div class="font-weight-bold">{{ $article->user->name }}</div>
         </a>
         <div class="font-weight-lighter">{{ $article->created_at->format('Y/m/d H:i') }}</div>
@@ -66,11 +74,11 @@
     </div>
     
     <div class="card-body pt-0 pb-2">
-      <h5 class="h5 card-title mb-2">
-        <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+      <h5 class="card-title card-title-style mb-2">
+        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
           {{ $article->title }}
         </a>
-      </h3>
+      </h5>
       <div class="card-text line-limit">
         {{ $article->body }}
       </div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{{ asset('img/coffee_icon32.png')}}" class=""></a>
+        <a class="navbar-brand mouseover" href="/"><img src="{{ asset('img/coffee_icon32.png')}}" class=""></a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item mr-5">
-                    <a class="nav-link active" href="#">INFO</a>
+                    <a class="nav-link active" href="{{ route('info') }}">インフォメーション</a>
                 </li>
                 <li class="nav-item mr-5">
-                    <a class="nav-link" href="#">CONTACT</a>
+                    <a class="nav-link" href="#">問い合わせ</a>
                 </li>
             
                 @guest
@@ -29,7 +29,7 @@
                 
                 @auth
                 <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{ route('articles.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
+                    <a class="nav-link" href="{{ route('articles.create') }}">投稿する</a>
                 </li>
                 @endauth
                 

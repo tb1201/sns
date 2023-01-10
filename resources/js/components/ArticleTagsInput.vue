@@ -59,13 +59,16 @@ export default {
 <style lang="css">
   .vue-tags-input .ti-tag {
     background: transparent;
-    border: 1px solid #747373;
-    color: #747373;
+    /*border: 1px solid #747373;*/
+    color: #007bff;
     margin-right: 4px;
     border-radius: 0px;
     font-size: 13px;
   }
   .vue-tags-input .ti-tag::before {/*タグの前へ#を表示させる*/
     content: "#";
+  }
+  .vue-tags-input .ti-icon-close {
+    color: #747373;
   }
 </style>

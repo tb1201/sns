@@ -4,7 +4,7 @@
 
 @section('content')
   @include('nav')
-  <div class="container py-5">
+  <div class="container-fluid py-5">
     <div class="card">
       @if ($article->image_path)
           <img class="card-img-top" src="{{ secure_asset('storage/image/' . $article->image_path) }}">
@@ -13,11 +13,11 @@
       @endif
       
       <div class="card-body d-flex flex-row">
-        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+        <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark mouseover">
         <i class="fas fa-user-circle fa-3x mr-1"></i>
         </a>
         <div>
-          <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
+          <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark mouseover">
             <div class="font-weight-bold">{{ $article->user->name }}</div>
           </a>
           <div class="font-weight-lighter">{{ $article->created_at->format('Y/m/d H:i') }}</div>
@@ -71,11 +71,11 @@
       </div>
       
       <div class="card-body pt-0">
-        <h3 class="h4 card-title">
-          <a class="text-dark" href="{{ route('articles.show', ['article' => $article]) }}">
+        <h4 class="card-title card-title-style">
+          <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
             {{ $article->title }}
           </a>
-        </h3>
+        </h4>
         <div class="card-text white_space">
           {{ $article->body }}
         </div>

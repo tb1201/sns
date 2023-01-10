@@ -4,7 +4,7 @@
 
 @section('content')
   @include('nav')
-  <div class="container">
+  <div class="container py-5">
     @include('users.user')
     @include('users.tabs', ['hasArticles' => false, 'hasLikes' => false])
     @foreach($followings as $person)
