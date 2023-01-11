@@ -5685,13 +5685,15 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("button", {
+  return _c("div", {
+    staticClass: "alignment"
+  }, [_c("button", {
     staticClass: "btn m-0 p-1 shadow-none",
     attrs: {
       type: "button"
     }
   }, [_c("i", {
-    staticClass: "fas fa-heart mr-1",
+    staticClass: "far fa-heart fa-lg mouseover",
     "class": {
       "red-text": this.isLikedBy,
       "animated heartBeat fast": this.gotToLike
@@ -5699,7 +5701,9 @@ var render = function render() {
     on: {
       click: _vm.clickLike
     }
-  })]), _vm._v("\n  " + _vm._s(_vm.countLikes) + "\n")]);
+  })]), _vm._v(" "), _c("span", {
+    staticClass: "icon-size"
+  }, [_vm._v("\n    " + _vm._s(_vm.countLikes) + "\n  ")])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

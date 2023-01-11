@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <div class="alignment">
     <button
       type="button"
       class="btn m-0 p-1 shadow-none"
     >
-      <i class="fas fa-heart mr-1"
+      <i class="far fa-heart fa-lg mouseover"
         :class="{'red-text':this.isLikedBy, 'animated heartBeat fast':this.gotToLike}"
         @click="clickLike"
       />
     </button>
-    {{ countLikes }}
+    <span class="icon-size">
+      {{ countLikes }}
+    </span>
   </div>
 </template>
 

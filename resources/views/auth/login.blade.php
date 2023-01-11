@@ -6,7 +6,7 @@
   <div class="container py-5">
     <div class="row">
       <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-        <h1 class="text-center"><a class="mouseover" href="/"><img src="{{ asset('img/coffee_icon32.png')}}" class=""></a></h1>
+        <h1 class="text-center"><a class="mouseover" href="/"><img src="{{ asset('img/coffee_icon32.png')}}"></a></h1>
         <div class="card mt-3">
           <div class="card-body text-center">
             <h2 class="h3 card-title text-center mt-2">ログイン</h2>

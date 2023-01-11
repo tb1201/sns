@@ -14,13 +14,11 @@
         </div>
     </div>
     
-    <div class="py-5">
-        <div class="container">
-            <div class="row">
-                @foreach($articles as $article)
-                  @include('articles.card')
-                @endforeach
-            </div>
+    <div class="container py-5">
+        <div class="row">
+            @foreach($articles as $article)
+              @include('articles.card')
+            @endforeach
         </div>
     </div>
 @endsection
