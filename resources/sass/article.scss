@@ -22,6 +22,14 @@
   transition-duration: 0.3s;
 }
 
+.detail-img-size{
+  overflow: hidden;
+}
+
+.detail-img-size img{
+  max-width: 100%;
+}
+
 //mouseover
 .card-img-size:hover img{
   opacity: 0.6;
@@ -36,7 +44,7 @@
 }
 
 .white_space {
-    white-space:pre-line;
+  white-space:pre-line;
 }
 
 // 記事行数表示制限

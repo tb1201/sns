@@ -18,9 +18,12 @@
     <label class="col-md-1" for="image">画像</label>
     <div class="col-md-11">
         <input type="file" class="form-control-file" name="image">
-        <div class="form-text text-info">
-          設定中：{{ $article->image_path }}
-        </div>
+        @if( $article->image_path !== NULL )
+          <div class="form-text text-info">
+            <!--設定中：{{ $article->image_path }}-->
+            画像登録済み
+          </div>
+        @endif
         <div class="form-check">
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除

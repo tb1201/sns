@@ -7,11 +7,13 @@
   <div class="container py-5">
     <div class="container-fluid px-2">
       <div class="card">
-        @if ($article->image_path)
-            <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
-        @else
-            <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
-        @endif
+        <div class="card-img-top detail-img-size">
+          @if ($article->image_path)
+              <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+          @else
+              <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
+          @endif
+        </div>
         
         <div class="card-body d-flex flex-row">
           <div class="mouseover alignment">

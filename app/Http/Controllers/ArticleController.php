@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use InterventionImage;
 
 class ArticleController extends Controller
 {
@@ -37,11 +38,26 @@ class ArticleController extends Controller
     
     public function store(ArticleRequest $request, Article $article)
     {
-        // フォームから画像が送信されてきたら、保存して、$article->image_path に画像のパスを保存する
         $form = $request->all();
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $article->image_path = basename($path);
+            // InterventtionImage ライブラリ
+            $image = InterventionImage::make($form['image']);
+            $image->orientate();
+            $image->resize(
+                750,
+                null,
+                function ($constraint) {
+                    // 縦横比を保持したままにする
+                    $constraint->aspectRatio();
+                    // 小さい画像は大きくしない
+                    $constraint->upsize();
+                }
+            );
+            $filename = $form['image']->hashName();
+            $filePath = storage_path('app/public/image/');
+            $image->save($filePath. $filename);
+
+            $article->image_path = $filename;
         } else {
             $article->image_path = null;
         }
@@ -51,7 +67,7 @@ class ArticleController extends Controller
         // フォームから送信されてきたimageを削除する
         unset($form['image']);
         
-        $article->fill($request->all());
+        $article->fill($form);
         $article->user_id = $request->user()->id;
         $article->save(); //テーブルへレコード登録
         
@@ -90,9 +106,25 @@ class ArticleController extends Controller
 
         if ($request->remove == 'true') {
             $article->image_path = null;
-        } elseif ($request->file('image')) {
-            $path = $request->file('image')->store('public/image');
-            $article->image_path = basename($path);
+        } elseif (isset($article_form['image'])) {
+            // InterventtionImage ライブラリ
+            $image = InterventionImage::make($article_form['image']);
+            $image->orientate();
+            $image->resize(
+                750,
+                null,
+                function ($constraint) {
+                    // 縦横比を保持したままにする
+                    $constraint->aspectRatio();
+                    // 小さい画像は大きくしない
+                    $constraint->upsize();
+                }
+            );
+            $filename = $article_form['image']->hashName();
+            $filePath = storage_path('app/public/image/');
+            $image->save($filePath. $filename);
+
+            $article->image_path = $filename;
         }
 
         unset($article_form['image']);
