@@ -1,13 +1,9 @@
 <div class="card mt-3">
   <div class="card-body d-flex flex-row">
-    <div class="mouseover">
-      <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-        <i class="fas fa-user-circle fa-3x"></i>
-      </a>
+    <div>
+      <i class="fas fa-user-circle fa-3x"></i>
       <h2 class="h5 card-title m-0">
-        <a href="{{ route('users.show', ['name' => $user->name]) }}" class="text-dark">
-          {{ $user->name }}
-        </a>
+        {{ $user->name }}
       </h2>
     </div>
     @if( Auth::id() !== $user->id )

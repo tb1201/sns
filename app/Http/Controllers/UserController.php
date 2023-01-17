@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     public function show(string $name)
     {
-        $user = User::where('name', $name)->first();
+        //N + 1問題対策
+        $user = User::where('name', $name)->first()->load(['articles.user', 'articles.likes', 'articles.tags']);
         
         //記事投稿日の降順
         $articles = $user->articles->sortByDesc('created_at');
@@ -24,7 +25,8 @@ class UserController extends Controller
     //いいねした記事一覧用
     public function likes(string $name)
     {
-        $user = User::where('name', $name)->first();
+        //N + 1問題対策
+        $user = User::where('name', $name)->first()->load(['likes.user', 'likes.likes', 'likes.tags']);
 
         $articles = $user->likes->sortByDesc('created_at');
 
@@ -37,7 +39,8 @@ class UserController extends Controller
     //フォロー中一覧
     public function followings(string $name)
     {
-        $user = User::where('name', $name)->first();
+        //N + 1問題対策
+        $user = User::where('name', $name)->first()->load('followings.followers');
 
         $followings = $user->followings->sortByDesc('created_at');
 
@@ -50,7 +53,8 @@ class UserController extends Controller
      //フォロワー一覧
     public function followers(string $name)
     {
-        $user = User::where('name', $name)->first();
+        //N + 1問題対策
+        $user = User::where('name', $name)->first()->load('followers.followers');
 
         $followers = $user->followers->sortByDesc('created_at');
 

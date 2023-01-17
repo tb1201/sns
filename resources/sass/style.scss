@@ -9,21 +9,23 @@ body {
   height: 60px;
 }
 
-//infomation page
-.info-img-size {
-    position: relative;
-    width: 100%;
-    padding-top: 50%;
-    overflow: hidden;
+.info-img-size img {
+  max-width: 100%;
+  display: block;
+  border-radius: 6px;
 }
 
-.info-img-size img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: auto;
+.oper-img-size img {
+  max-width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
+.oper-headline {
+  margin-top: 56px;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #e0e0e0;
 }
 
 //mouseover

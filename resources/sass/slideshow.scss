@@ -1,37 +1,7 @@
-#slide-container h1 {
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	font-size:5vw;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: #fff;
-	font-weight:450;
-}
-
-@media screen and (max-width: 780px) { /*ウィンドウ幅が767pxの場合に適用*/
-    #slide-container h1 {
-        top: 40%;
-    }
-}
-@media screen and (max-width: 600px) { /*ウィンドウ幅が400pxの場合に適用*/
-    #slide-container h1 {
-        top: 30%;
-    }
-}
-@media screen and (max-width: 420px) { /*ウィンドウ幅が400pxの場合に適用*/
-    #slide-container h1 {
-        top: 25%;
-    }
-}
-
 .slide {
   position: relative;
   width: 100%;
-  padding-top: 62.5%;
+  padding-top: 43%;
   overflow: hidden;
   background-color: #c6c6c6;
 }
@@ -75,4 +45,18 @@
  
 .slide img:last-child {
   animation-delay: 16s;
+}
+
+.slide p {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+	font-size:5vw;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #fff;
+	font-weight:450;
 }

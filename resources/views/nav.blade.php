@@ -12,7 +12,7 @@
                     <a class="nav-link active" href="{{ route('info') }}">概要</a>
                 </li>
                 <li class="nav-item mr-5">
-                    <a class="nav-link" href="#">操作方法</a>
+                    <a class="nav-link" href="{{ route('operate') }}">使い方</a>
                 </li>
             
                 @guest

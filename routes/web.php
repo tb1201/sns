@@ -17,10 +17,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', 'ArticleController@index');
-use App\Http\Controllers\InfoController;
-Route::get('/info', [InfoController::class, 'index'])->name('info');
+//概要
+Route::get('/info', function () {
+    return view('info');
+})->name('info');
 
+// 操作方法
+Route::get('/operate', function () {
+    return view('operate');
+})->name('operate');
+
+//記事一覧
 use App\Http\Controllers\ArticleController;
 Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
 Route::resource('/articles', ArticleController::class)->except(['index, show'])->middleware('auth');

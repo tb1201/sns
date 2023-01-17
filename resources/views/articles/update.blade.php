@@ -19,7 +19,7 @@
     <div class="col-md-11">
         <input type="file" class="form-control-file" name="image">
         <div class="form-text text-info">
-            {{ $article->image_path }}
+          設定中：{{ $article->image_path }}
         </div>
         <div class="form-check">
             <label class="form-check-label">
