@@ -15,7 +15,7 @@
               <form method="POST" action="{{ route('articles.update', ['article' => $article]) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @include('articles.update')
-                <button type="submit" class="btn bg-dark bg-gradient text-white btn-block">更新する</button>
+                <button type="submit" class="btn bg-dark bg-gradient text-white btn-block mouseover">更新する</button>
               </form>
             </div>
           </div>

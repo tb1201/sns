@@ -31,12 +31,12 @@
                 <!--  <a href="{{ route('password.request') }}" class="card-text">パスワードを忘れた方</a>-->
                 <!--</div>-->
 
-                <button class="btn btn-block bg-dark bg-gradient text-white mt-2 mb-2" type="submit">ログイン</button>
+                <button class="btn btn-block bg-dark bg-gradient text-white mt-2 mb-2 mouseover" type="submit">ログイン</button>
 
               </form>
 
               <div class="mt-0">
-                <a href="{{ route('register') }}" class="card-text">ユーザー登録はこちら</a>
+                <a href="{{ route('register') }}" class="card-text mouseover">ユーザー登録はこちら</a>
               </div>
 
             </div>

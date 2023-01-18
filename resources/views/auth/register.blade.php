@@ -33,11 +33,11 @@
                   <label for="password_confirmation">パスワード(確認)</label>
                   <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required>
                 </div>
-                <button class="btn btn-block bg-dark bg-gradient text-white mt-2 mb-2" type="submit">ユーザー登録</button>
+                <button class="btn btn-block bg-dark bg-gradient text-white mt-2 mb-2 mouseover" type="submit">ユーザー登録</button>
               </form>
 
               <div class="mt-0">
-                <a href="{{ route('login') }}" class="card-text">ログインはこちら</a>
+                <a href="{{ route('login') }}" class="card-text mouseover">ログインはこちら</a>
               </div>
               
             </div>

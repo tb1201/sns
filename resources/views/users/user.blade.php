@@ -18,10 +18,10 @@
   </div>
   <div class="card-body">
     <div class="card-text">
-      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-muted mouseover">
+      <a href="{{ route('users.followings', ['name' => $user->name]) }}" class="text-dark mouseover">
         {{ $user->count_followings }} フォロー
       </a>
-      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-muted mouseover">
+      <a href="{{ route('users.followers', ['name' => $user->name]) }}" class="text-dark mouseover">
         {{ $user->count_followers }} フォロワー
       </a>
     </div>
