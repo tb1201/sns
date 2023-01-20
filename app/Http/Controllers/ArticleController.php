@@ -7,6 +7,7 @@ use App\Models\Article;
 use App\Models\Tag;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 
 class ArticleController extends Controller
@@ -38,6 +39,9 @@ class ArticleController extends Controller
     
     public function store(ArticleRequest $request, Article $article)
     {
+        if (Storage::missing('public/image')) {
+            Storage::makeDirectory('public/image');
+        }
         $form = $request->all();
         if (isset($form['image'])) {
             // InterventtionImage ライブラリ
@@ -105,6 +109,7 @@ class ArticleController extends Controller
         $article_form = $request->all();
 
         if ($request->remove == 'true') {
+            Storage::delete('public/image/'. $article->image_path);
             $article->image_path = null;
         } elseif (isset($article_form['image'])) {
             // InterventtionImage ライブラリ
@@ -124,6 +129,7 @@ class ArticleController extends Controller
             $filePath = storage_path('app/public/image/');
             $image->save($filePath. $filename);
 
+            Storage::delete('public/image/'. $article->image_path);
             $article->image_path = $filename;
         }
 
@@ -146,6 +152,7 @@ class ArticleController extends Controller
     
     public function destroy(Article $article)
     {
+        Storage::delete('public/image/'. $article->image_path);
         $article->delete();
         return redirect()->route('articles.index');
     }
