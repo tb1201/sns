@@ -10,7 +10,7 @@
       :tags="tags"
       placeholder="タグを5個まで入力できます"
       :autocomplete-items="filteredItems"
-      :add-on-key="[13, 32]"
+      :add-on-key="[13, 32, 39]"
       @tags-changed="newTags => tags = newTags"
     />
   </div>
