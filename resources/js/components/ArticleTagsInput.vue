@@ -4,6 +4,7 @@
       type="hidden"
       name="tags"
       :value="tagsJson"
+      form="postField"
     >
     <vue-tags-input
       v-model="tag"

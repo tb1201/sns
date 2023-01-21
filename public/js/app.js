@@ -5729,7 +5729,8 @@ var render = function render() {
   return _c("div", [_c("input", {
     attrs: {
       type: "hidden",
-      name: "tags"
+      name: "tags",
+      form: "sampleField"
     },
     domProps: {
       value: _vm.tagsJson
