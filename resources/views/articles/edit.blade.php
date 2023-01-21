@@ -2,9 +2,8 @@
 
 @section('title', '記事更新')
 
-@include('nav')
-
 @section('content')
+  @include('nav')
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 py-5">
