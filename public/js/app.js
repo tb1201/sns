@@ -5730,7 +5730,7 @@ var render = function render() {
     attrs: {
       type: "hidden",
       name: "tags",
-      form: "sampleField"
+      form: "postField"
     },
     domProps: {
       value: _vm.tagsJson
