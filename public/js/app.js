@@ -5726,7 +5726,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("span", [_c("input", {
+  return _c("div", [_c("input", {
     attrs: {
       type: "hidden",
       name: "tags"
@@ -5734,7 +5734,7 @@ var render = function render() {
     domProps: {
       value: _vm.tagsJson
     }
-  })]), _vm._v(" "), _c("vue-tags-input", {
+  }), _vm._v(" "), _c("vue-tags-input", {
     attrs: {
       tags: _vm.tags,
       placeholder: "タグを5個まで入力できます",
