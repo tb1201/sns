@@ -1,6 +1,6 @@
 <div class="md-form">
-  <label>タイトル</label>
-  <input type="text" name="title" class="form-control" required value="{{ $article->title ?? old('title') }}" form="postField">
+  <label for="title">タイトル</label>
+  <input type="text" name="title" id="title" class="form-control" required value="{{ $article->title ?? old('title') }}" form="postField">
 </div>
 
 <!--タグ表示-->
