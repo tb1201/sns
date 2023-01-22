@@ -21,7 +21,7 @@
       
       <h3 class="h3 oper-headline">投稿する</h3>
       <p>タイトルと本文は、必須入力、タグと画像は省略可能です。</p>
-      <p>タグは、文字を入力後、TabキーかEnterキーを押すと先頭に#が付きます。</p>
+      <p>タグは、文字を入力後、Enterキー又は、スペースキーを押すと先頭に#が付きます。</p>
       <p class="oper-img-size mb-5">
         <img src="{{ secure_asset('img/post.png') }}">
       </p>

@@ -5740,7 +5740,7 @@ var render = function render() {
       tags: _vm.tags,
       placeholder: "タグを5個まで入力できます",
       "autocomplete-items": _vm.filteredItems,
-      "add-on-key": [13, 32, 39]
+      "add-on-key": [13, 32]
     },
     on: {
       "tags-changed": function tagsChanged(newTags) {
