@@ -18,7 +18,13 @@
         <div class="card-body d-flex flex-row">
           <div class="mouseover alignment">
             <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-              <i class="fas fa-user-circle fa-3x mr-1"></i>
+              <div class="card-profile-image">
+                @if( $article->user->profile_photo !== NULL )
+                  <img src="{{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }}" alt="avatar" />
+                @else
+                  <img src="{{ secure_asset('img/person.png') }}">
+                @endif
+              </div>
             </a>
             <div>
               <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">

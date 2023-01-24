@@ -1,25 +1,28 @@
 <div class="col-md-4">
   <div class="card my-4 shadow-sm">
-    @if ($article->image_path)
-      <div class="card-img-top card-img-size">
-        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
-          <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
-        </a>
-      </div>
-    @else
-      <div class="card-img-top card-img-size">
-        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
-          <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
-        </a>
-      </div>
-    @endif
     
+      <div class="card-img-top card-img-size">
+        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
+          @if ($article->image_path)
+            <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+          @else
+            <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
+          @endif
+        </a>
+      </div>
+      
     <div class="card-body d-flex flex-row">
       <div class="mouseover alignment">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
-          <i class="fas fa-user-circle fa-3x mr-1"></i>
+          <div class="card-profile-image">
+            @if ($article->user->profile_photo)
+              <img src="{{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }}" alt="avatar" />
+            @else
+              <img src="{{ secure_asset('img/person.png') }}">
+            @endif
+          </div>
         </a>
-        <div>
+        <div class="ml-2">
           <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
             <div class="font-weight-bold">{{ $article->user->name }}</div>
           </a>

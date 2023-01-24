@@ -41,6 +41,9 @@
             <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
               マイページ
             </button>
+            <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.edit", ["name" => Auth::user()->name]) }}'">
+              プロフィール
+            </button>
             <div class="dropdown-divider"></div>
             <button form="logout-button" class="dropdown-item" type="submit">
               ログアウト

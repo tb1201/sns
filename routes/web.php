@@ -47,6 +47,9 @@ Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 use App\Http\Controllers\UserController;
 Route::controller(UserController::class)->prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', 'show')->name('show');
+    //プロフィール
+    Route::get('/{name}/edit', 'edit')->name('edit')->middleware('auth');
+    Route::patch('/{name}/update', 'update')->name('update')->middleware('auth');
     //マイページのいいねタブ
     Route::get('/{name}/likes', 'likes')->name('likes');
     //フォロー中、フォロワーの一覧
