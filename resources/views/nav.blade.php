@@ -34,15 +34,27 @@
       <!-- Dropdown -->
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mouseover" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-lg"></i>
+          <a class="nav-link dropdown-toggle mouseover d-flex align-items-center" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!--<i class="fas fa-user-circle fa-lg"></i>-->
+            <div class="nav-profile-image">
+              @if( Auth::user()->profile_photo !== NULL )
+                <img src="{{ secure_asset('storage/profilePhoto/' . Auth::user()->profile_photo) }}" alt="avatar" />
+              @else
+                <img src="{{ secure_asset('img/person.png') }}">
+              @endif
+            </div>
           </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <div class="user-name">{{ Auth::user()->name }}</div>
+            <div class="dropdown-divider"></div>
             <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.show", ["name" => Auth::user()->name]) }}'">
               マイページ
             </button>
             <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.edit", ["name" => Auth::user()->name]) }}'">
               プロフィール
+            </button>
+            <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.password", ["name" => Auth::user()->name]) }}'">
+              パスワードを変更する
             </button>
             <div class="dropdown-divider"></div>
             <button form="logout-button" class="dropdown-item" type="submit">

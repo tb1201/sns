@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
+use Validator;
 
 class UserController extends Controller
 {
@@ -36,17 +37,40 @@ class UserController extends Controller
     //プロフィール
     public function update(Request $request, string $name)
     {
-        //N + 1問題対策
-        $user = User::where('name', $name)->first()->load(['articles.user', 'articles.likes', 'articles.tags']);
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
+        
+        //バリデーション
+        $validator = Validator::make($profile_form , [
+            'name' => ['string', 'alpha_num', 'min:3', 'max:16'], 
+            'email' => ['string', 'email', 'max:255'],
+            'self_introduction' => ['string', 'max:160'],
+        ]);
 
+        $user = User::where('name', $name)->first();
+        //バリデーションの結果がエラーの場合
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+        if ($user->name !== $profile_form['name']) {
+            if (User::where('name', $profile_form['name'])->first()) {
+                return redirect()->back()->withErrors('入力されたユーザー名は、既に登録されています。');
+            }
+        }
+        if ($user->email !== $profile_form['email']) {
+            if (User::where('email', $profile_form['email'])->first()) {
+                return redirect()->back()->withErrors('入力されたメールアドレスは、既に登録されています。');
+            }
+        }
+        
         if (Storage::missing('public/profilePhoto')) {
             Storage::makeDirectory('public/profilePhoto');
         }
 
         if ($request->remove == 'true') {
-            Storage::delete('public/profilePhoto/'. $user->profile_photo);
+            if (Storage::exists('public/profilePhoto/'. $user->profile_photo)) {
+                Storage::delete('public/profilePhoto/'. $user->profile_photo);
+            }
             $user->profile_photo = null;
         } elseif (isset($profile_form['image'])) {
             // InterventtionImage ライブラリ
@@ -66,7 +90,9 @@ class UserController extends Controller
             $filePath = storage_path('app/public/profilePhoto/');
             $image->save($filePath. $filename);
 
-            Storage::delete('public/profilePhoto/'. $user->profile_photo);
+            if (Storage::exists('public/profilePhoto/'. $user->profile_photo)) {
+                Storage::delete('public/profilePhoto/'. $user->profile_photo);
+            }
             $user->profile_photo = $filename;
         }
 
@@ -75,9 +101,48 @@ class UserController extends Controller
         unset($profile_form['_token']);
 
         // 該当するデータを上書きして保存する
-        $user->fill(array_merge($profile_form, [ 'password' => Hash::make($profile_form['password']) ]))->save();
+        $user->fill($profile_form)->save();
         
-        return redirect()->route('articles.index');
+        return redirect()->route('users.show', [
+            'name' => $user->name,
+        ]);
+    }
+    
+    //パスワード変更
+    public function password(string $name)
+    {
+        $user = User::where('name', $name)->first();
+        
+        return view('users.password', ['user' => $user]);
+    }
+    
+    public function passwordUpdate(Request $request, string $name)
+    {
+        // 送信されてきたフォームデータを格納する
+        $password_form = $request->all();
+        
+        //バリデーション
+        $validator = Validator::make($password_form , [
+            'password' => ['string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = User::where('name', $name)->first();
+        //バリデーションの結果がエラーの場合
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+        if (!Hash::check($password_form['current_password'], $user->password)) {
+            return redirect()->back()->withErrors('現在のパスワードと入力したパスワードが一致しません。');
+        }
+
+        unset($password_form['_token']);
+
+        // 該当するデータを上書きして保存する
+        $user->fill(['password' => Hash::make($password_form['password']) ])->save();
+        
+        return redirect()->route('users.show', [
+            'name' => $user->name,
+        ]);
     }
     
     //いいねした記事一覧用

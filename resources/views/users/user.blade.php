@@ -9,7 +9,7 @@
         @endif
       </div>
 
-      <h2 class="h4 card-title">
+      <h2 class="h4 card-title mt-2">
         {{ $user->name }}
       </h2>
       <div class="card-text white_space">

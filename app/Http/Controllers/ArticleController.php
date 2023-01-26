@@ -109,7 +109,9 @@ class ArticleController extends Controller
         $article_form = $request->all();
 
         if ($request->remove == 'true') {
-            Storage::delete('public/image/'. $article->image_path);
+            if (Storage::exists('public/image/'. $article->image_path)) {
+                Storage::delete('public/image/'. $article->image_path);
+            }
             $article->image_path = null;
         } elseif (isset($article_form['image'])) {
             // InterventtionImage ライブラリ
@@ -129,7 +131,9 @@ class ArticleController extends Controller
             $filePath = storage_path('app/public/image/');
             $image->save($filePath. $filename);
 
-            Storage::delete('public/image/'. $article->image_path);
+            if (Storage::exists('public/image/'. $article->image_path)) {
+                Storage::delete('public/image/'. $article->image_path);
+            }
             $article->image_path = $filename;
         }
 
@@ -152,7 +156,9 @@ class ArticleController extends Controller
     
     public function destroy(Article $article)
     {
-        Storage::delete('public/image/'. $article->image_path);
+        if (Storage::exists('public/image/'. $article->image_path)) {
+            Storage::delete('public/image/'. $article->image_path);
+        }
         $article->delete();
         return redirect()->route('articles.index');
     }

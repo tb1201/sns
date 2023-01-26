@@ -11,7 +11,7 @@
           <div class="card-body pt-0">
             @include('error_card_list')
             <div class="card-text">
-              <form method="POST" class="edit_user" action="{{ route('users.update', ['name' => $user->name]) }}" accept-charset="UTF-8" enctype="multipart/form-data">
+              <form method="POST" class="edit_user" action="{{ route('users.update', ['name' => $user->name]) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
 
@@ -34,9 +34,7 @@
                     </div>
                     <div class="col-md-10">
                       <div class="my-3 ml-2">
-                        <!--<button type="button" class="el-button el-button--default">-->
-                        <!--  <span>画像をアップロード</span>-->
-                        <!--</button>--><input type="file" name="image" class="form-control-file">
+                        <input type="file" name="image" class="form-control-file">
                       </div>
                       @if( $user->profile_photo !== NULL )
                       <div class="form-check ml-2">
@@ -57,16 +55,6 @@
                 <div class="form-group">
                   <label for="email">メールアドレス</label>
                   <input autofocus="autofocus" class="form-control" type="email" required value="{{ $user->email ?? old('email') }}" name="email" />
-                </div>
-
-                <div class="form-group">
-                  <label for="password">パスワード</label>
-                  <input autofocus="autofocus" class="form-control" type="password" required value="{{ $user->password ?? old('password') }}" name="password" />
-                </div>
-
-                <div class="form-group mb-4">
-                  <label for="user_password_confirmation">パスワードの確認</label>
-                  <input autofocus="autofocus" class="form-control" type="password" name="user_password_confirmation" />
                 </div>
   
                 <button type="submit" class="btn bg-dark bg-gradient text-white btn-block mouseover">更新する</button>

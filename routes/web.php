@@ -50,6 +50,9 @@ Route::controller(UserController::class)->prefix('users')->name('users.')->group
     //プロフィール
     Route::get('/{name}/edit', 'edit')->name('edit')->middleware('auth');
     Route::patch('/{name}/update', 'update')->name('update')->middleware('auth');
+    //パスワード変更
+    Route::get('/{name}/password', 'password')->name('password')->middleware('auth');
+    Route::patch('/{name}/password', 'passwordUpdate')->name('passwordUpdate')->middleware('auth');
     //マイページのいいねタブ
     Route::get('/{name}/likes', 'likes')->name('likes');
     //フォロー中、フォロワーの一覧
