@@ -52,7 +52,7 @@
                   <textarea name="self_introduction" class="form-control" rows="4" wrap="hard" name="self-introduction">{{ $user->self_introduction ?? old('self_introduction') }}</textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mb-4">
                   <label for="email">メールアドレス</label>
                   <input autofocus="autofocus" class="form-control" type="email" required value="{{ $user->email ?? old('email') }}" name="email" />
                 </div>

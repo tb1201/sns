@@ -35,7 +35,6 @@
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mouseover d-flex align-items-center" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <!--<i class="fas fa-user-circle fa-lg"></i>-->
             <div class="nav-profile-image">
               @if( Auth::user()->profile_photo !== NULL )
                 <img src="{{ secure_asset('storage/profilePhoto/' . Auth::user()->profile_photo) }}" alt="avatar" />

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
 use Validator;
+use App\Rules\CustomRule;
 
 class UserController extends Controller
 {
@@ -42,9 +43,9 @@ class UserController extends Controller
         
         //バリデーション
         $validator = Validator::make($profile_form , [
-            'name' => ['string', 'alpha_num', 'min:3', 'max:16'], 
-            'email' => ['string', 'email', 'max:255'],
-            'self_introduction' => ['string', 'max:160'],
+            'name' => ['string', new CustomRule, 'min:3', 'max:16'],
+            'email' => ['string', 'email:filter,dns', 'max:255'],
+            'self_introduction' => ['string', 'max:160', 'nullable'],
         ]);
 
         $user = User::where('name', $name)->first();
@@ -123,7 +124,7 @@ class UserController extends Controller
         
         //バリデーション
         $validator = Validator::make($password_form , [
-            'password' => ['string', 'min:8', 'confirmed'],
+            'password' => ['string', new CustomRule, 'min:8', 'confirmed'],
         ]);
 
         $user = User::where('name', $name)->first();

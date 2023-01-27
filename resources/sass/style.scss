@@ -71,6 +71,11 @@ body {
   transform: translate(-50%, -50%);
   max-height: 100%;
 }
+
+.dropdown-item {
+  padding: .5rem 1.5rem;
+}
+
 //mouseover
 .mouseover {
   cursor: pointer;

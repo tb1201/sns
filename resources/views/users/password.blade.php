@@ -18,17 +18,17 @@
     
                     <div class="form-group">
                       <label for="current_password">現在のパスワード</label>
-                      <input autofocus="autofocus" class="form-control" type="password" value="{{ old('current_password') }}" name="current_password" />
+                      <input autofocus="autofocus" class="form-control" type="password" value="{{ old('current_password') }}" name="current_password" required/>
                     </div>
                     
                     <div class="form-group">
                       <label for="password">新しいパスワード</label>
-                      <input autofocus="autofocus" class="form-control" type="password" value="{{ old('password') }}" name="password" />
+                      <input autofocus="autofocus" class="form-control" type="password" value="{{ old('password') }}" name="password" required/>
                     </div>
     
                     <div class="form-group mb-4">
                       <label for="password_confirmation">新しいパスワード（確認用）</label>
-                      <input autofocus="autofocus" class="form-control" type="password" name="password_confirmation" />
+                      <input autofocus="autofocus" class="form-control" type="password" name="password_confirmation" required/>
                     </div>
       
                     <button type="submit" class="btn bg-dark bg-gradient text-white btn-block mouseover">パスワードを更新</button>
