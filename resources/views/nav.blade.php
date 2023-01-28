@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand mouseover" href="/"><img src="{{ asset('img/coffee_icon32.png')}}"></a>
+    <a class="navbar-brand mouseover" href="{{ route('articles.index') }}"><img src="{{ asset('img/coffee_icon32.png')}}"></a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto mr-auto">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mr-5">
+          <a class="nav-link active mouseover" href="{{ route('articles.index') }}">ホーム</a>
+        </li>
         <li class="nav-item mr-5">
           <a class="nav-link active mouseover" href="{{ route('info') }}">概要</a>
         </li>
@@ -37,9 +40,9 @@
           <a class="nav-link dropdown-toggle mouseover d-flex align-items-center" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="nav-profile-image">
               @if( Auth::user()->profile_photo !== NULL )
-                <img src="{{ secure_asset('storage/profilePhoto/' . Auth::user()->profile_photo) }}" alt="avatar" />
+                <span class="nav-img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . Auth::user()->profile_photo) }})"></span>
               @else
-                <img src="{{ secure_asset('img/person.png') }}">
+                <span class="nav-img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
               @endif
             </div>
           </a>

@@ -5,7 +5,6 @@ body {
 .footer {
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
 }
 
@@ -36,40 +35,36 @@ body {
 
 //profile page
 .profile-image {
-  overflow: hidden;
   height: 100px;
   width: 100px;
-  position: relative;
-  border-radius: 50%;
 }
 
-.profile-image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  max-height: 100%;
+.img-inner {
+  background: no-repeat center center / cover;
+  display: block;
+  border-radius: 50%;
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
 }
 
 .nav-profile-image {
-  overflow: hidden;
   height: 32px;
   width: 32px;
-  position: relative;
-  border-radius: 50%;
-  border: solid 0.05rem;
 }
 
-.nav-profile-image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  max-height: 100%;
+.nav-img-inner {
+  background: no-repeat center center / cover;
+  display: block;
+  border-radius: 50%;
+  border: solid 0.09rem;
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
 }
 
 .dropdown-item {

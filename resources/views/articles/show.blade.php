@@ -9,31 +9,31 @@
       <div class="card">
         <div class="card-img-top detail-img-size">
           @if ($article->image_path)
-              <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
+            <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
           @else
-              <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
+            <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
           @endif
         </div>
-        
+
         <div class="card-body d-flex flex-row">
           <div class="mouseover alignment">
             <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
               <div class="card-profile-image">
                 @if( $article->user->profile_photo !== NULL )
-                  <img src="{{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }}" alt="avatar" />
+                  <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }})"></span>
                 @else
-                  <img src="{{ secure_asset('img/person.png') }}">
+                  <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
                 @endif
               </div>
             </a>
-            <div>
+            <div class="ml-2">
               <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
                 <div class="font-weight-bold">{{ $article->user->name }}</div>
               </a>
               <div class="font-weight-lighter card-text">{{ $article->created_at->format('Y/m/d H:i') }}</div>
             </div>
           </div>
-      
+
           @if( Auth::id() === $article->user_id )
           <!-- dropdown -->
             <div class="ml-auto card-text">
@@ -53,7 +53,7 @@
               </div>
             </div>
             <!-- dropdown -->
-      
+
             <!-- modal -->
             <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
@@ -80,17 +80,17 @@
             <!-- modal -->
           @endif
         </div>
-        
+
         <div class="card-body pt-0">
-          <h4 class="h4 card-title">
+          <h4 class="h4 card-title mb-0">
               {{ $article->title }}
           </h4>
           <div class="card-text white_space">
             {{ $article->body }}
           </div>
         </div>
-        
-        <div class="card-body pt-0 pb-4 pl-3">
+
+        <div class="card-body pt-0 pb-2 pl-3">
           <div class="card-text line-height">
             @foreach($article->tags as $tag)
                     <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
@@ -99,7 +99,7 @@
             @endforeach
           </div>
         </div>
-        
+
         <div class="card-body pt-0 pb-2 pl-3">
           <div class="card-text">
             <article-like
@@ -111,7 +111,7 @@
             </article-like>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>

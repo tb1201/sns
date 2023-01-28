@@ -4,9 +4,9 @@
       <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark mouseover">
         <div class="card-profile-image">
           @if( $person->profile_photo !== NULL )
-            <img src="{{ secure_asset('storage/profilePhoto/' . $person->profile_photo) }}" alt="avatar" />
+            <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $person->profile_photo) }})"></span>
           @else
-            <img src="{{ secure_asset('img/person.png') }}">
+            <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
           @endif
         </div>
       </a>

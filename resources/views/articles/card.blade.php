@@ -1,25 +1,24 @@
 <div class="col-md-4">
   <div class="card my-4 shadow-sm">
-    
+    <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
       <div class="card-img-top card-img-size">
-        <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
-          @if ($article->image_path)
-            <img src="{{ secure_asset('storage/image/' . $article->image_path) }}">
-          @else
-            <img src="{{ secure_asset('img/20200501_noimage.jpg') }}">
-          @endif
-        </a>
+      @if ($article->image_path)
+        <span class="card-img-inner" style="background-image: url({{ secure_asset('storage/image/' . $article->image_path) }})"></span>
+      @else
+        <span class="card-img-inner" style="background-image: url({{ secure_asset('img/20200501_noimage.jpg') }})"></span>
+      @endif
       </div>
-      
+    </a>
+
     <div class="card-body d-flex flex-row">
       <div class="mouseover alignment">
         <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
           <div class="card-profile-image">
-            @if ($article->user->profile_photo)
-              <img src="{{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }}" alt="avatar" />
-            @else
-              <img src="{{ secure_asset('img/person.png') }}">
-            @endif
+          @if ($article->user->profile_photo)
+            <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $article->user->profile_photo) }})"></span>
+          @else
+            <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
+          @endif
           </div>
         </a>
         <div class="ml-2">
@@ -30,54 +29,53 @@
         </div>
       </div>
   
-    @if( Auth::id() === $article->user_id )
+      @if( Auth::id() === $article->user_id )
       <!-- dropdown -->
-        <div class="ml-auto card-text">
-          <div class="dropdown">
-            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="mouseover">
-              <i class="fas fa-edit fa-lg"></i>
+      <div class="ml-auto card-text">
+        <div class="dropdown">
+          <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="mouseover">
+            <i class="fas fa-edit fa-lg"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
+              <i class="fas fa-pen-nib mr-1"></i>記事を更新する
             </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="{{ route("articles.edit", ['article' => $article]) }}">
-                <i class="fas fa-pen-nib mr-1"></i>記事を更新する
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
-                <i class="far fa-trash-alt mr-1"></i>記事を削除する
-              </a>
-            </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
+              <i class="far fa-trash-alt mr-1"></i>記事を削除する
+            </a>
           </div>
         </div>
-        <!-- dropdown -->
-  
-        <!-- modal -->
-        <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+      </div>
+      <!-- dropdown -->
+
+      <!-- modal -->
+      <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
+              @csrf
+              @method('DELETE')
+              <div class="modal-body">
+                {{ $article->title }}を削除します。よろしいですか？
               </div>
-              <form method="POST" action="{{ route('articles.destroy', ['article' => $article]) }}">
-                @csrf
-                @method('DELETE')
-                <div class="modal-body">
-                  {{ $article->title }}を削除します。よろしいですか？
-                </div>
-                <div class="modal-footer justify-content-between">
-                  <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                  <button type="submit" class="btn btn-danger">削除する</button>
-                </div>
-              </form>
-            </div>
+              <div class="modal-footer justify-content-between">
+                <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                <button type="submit" class="btn btn-danger">削除する</button>
+              </div>
+            </form>
           </div>
         </div>
-        <!-- modal -->
+      </div>
+      <!-- modal -->
       @endif
-  
     </div>
-    
+
     <div class="card-body pt-0 pb-2">
       <h5 class="card-title card-title-style mb-2">
         <a class="text-dark mouseover" href="{{ route('articles.show', ['article' => $article]) }}">
@@ -88,17 +86,17 @@
         {{ $article->body }}
       </div>
     </div>
-    
+
     <div class="card-body pt-0 pb-2 pl-3">
       <div class="card-text line-height line-limit-tag">
         @foreach($article->tags as $tag)
-                <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
-                  {{ $tag->hashtag }}
-                </a>
+        <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="p-1 mr-1 mt-1">
+          {{ $tag->hashtag }}
+        </a>
         @endforeach
       </div>
     </div>
-    
+
     <div class="card-body pt-0 pb-2 pl-3">
       <div class="card-text">
         <article-like
@@ -110,6 +108,6 @@
         </article-like>
       </div>
     </div>
-    
+
   </div>
 </div>
