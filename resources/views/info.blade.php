@@ -6,7 +6,7 @@
   @include('nav')
   <div class="container py-5">
     <div class="container-fluid px-2">
-      <p class="info-img-size mb-5"><img src="{{ secure_asset('img/iwate.jpg') }}"></p>
+      <p class="info-img-size mb-5"><img src="{{ secure_asset('img/iwate.jpg') }}" alt="盛岡の写真"></p>
       <p>岩手県盛岡市は、2020年のコーヒー消費量が全国5位。</p>
       <p>個人経営の喫茶店、コーヒー販売店が多く、コーヒーのイベントも開催されている。</p>
       <p> 岩手県内のコーヒー販売店舗を知るための口コミが纏まったサイトがあればいいなと思い、</p>

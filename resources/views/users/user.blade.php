@@ -2,13 +2,11 @@
   <div class="card-body d-flex flex-row">
     <div>
       <div class="profile-image">
-        @if( $user->profile_photo !== NULL )
-          <!--<img src="{{ secure_asset('storage/profilePhoto/' . $user->profile_photo) }}" alt="avatar" />-->
-          <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $user->profile_photo) }})"></span>
-        @else
-          <!--<img src="{{ secure_asset('img/person.png') }}">-->
-          <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
-        @endif
+      @if( $user->profile_photo !== NULL )
+        <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $user->profile_photo) }})"></span>
+      @else
+        <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
+      @endif
       </div>
 
       <h2 class="h4 card-title mt-2">

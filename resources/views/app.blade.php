@@ -14,9 +14,9 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     
-    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/article.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/slideshow.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/article.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/slideshow.css') }}" rel="stylesheet">
   </head>
 
   <body>

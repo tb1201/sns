@@ -3,11 +3,11 @@
     <div class="mouseover">
       <a href="{{ route('users.show', ['name' => $person->name]) }}" class="text-dark mouseover">
         <div class="card-profile-image">
-          @if( $person->profile_photo !== NULL )
-            <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $person->profile_photo) }})"></span>
-          @else
-            <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
-          @endif
+        @if( $person->profile_photo !== NULL )
+          <span class="img-inner" style="background-image: url({{ secure_asset('storage/profilePhoto/' . $person->profile_photo) }})"></span>
+        @else
+          <span class="img-inner" style="background-image: url({{ secure_asset('img/person.png') }})"></span>
+        @endif
         </div>
       </a>
       <h2 class="h5 card-title m-0">

@@ -7,9 +7,9 @@
   <!--slide show-->
   <div class="slide">
     <p>Iwate<br> Coffee Shop Exploration</p>
-    <img src="{{ secure_asset('img/cafe-7588632_1280.jpg') }}" alt="">
-    <img src="{{ secure_asset('img/coffee-4585744_1280.jpg') }}" alt="">
-    <img src="{{ secure_asset('img/cafe-1869656_1280.jpg') }}" alt="">
+    <img src="{{ secure_asset('img/cafe-7588632_1280.jpg') }}" alt="slideshow1">
+    <img src="{{ secure_asset('img/coffee-4585744_1280.jpg') }}" alt="slideshow2">
+    <img src="{{ secure_asset('img/cafe-1869656_1280.jpg') }}" alt="slideshow3">
   </div>
   
   
