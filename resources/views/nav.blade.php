@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand mouseover" href="/">
-      <div class="home-icom">
-        <img src="{{ asset('img/coffee_icon32.png') }}" alt="ホームアイコン">
-      </div>
+      <img src="{{ asset('img/coffee_icon32.png') }}" width="32" height="32" alt="ホームアイコン">
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

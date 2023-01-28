@@ -7,6 +7,7 @@
     <title>
     @yield('title')
     </title>
+    <meta name="description" content="岩手県盛岡市は、2020年のコーヒー消費量が全国5位。岩手県内のおすすめのカフェ、喫茶店などを投稿することができるサイト。">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
