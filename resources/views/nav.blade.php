@@ -60,6 +60,9 @@
             <button class="dropdown-item" type="button" onclick="location.href='{{ route("users.password", ["name" => Auth::user()->name]) }}'">
               パスワードを変更する
             </button>
+            <button form="user-delete" class="dropdown-item" type="submit" onclick='return confirm("退会します。よろしいですか？");'>
+              退会する
+            </button>
             <div class="dropdown-divider"></div>
             <button form="logout-button" class="dropdown-item" type="submit">
               ログアウト
@@ -69,6 +72,12 @@
         <form id="logout-button" method="POST" action="{{ route('logout') }}">
           @csrf
         </form>
+        
+        <form id="user-delete" method="POST" action="{{ route("users.accountDelete", ["name" => Auth::user()->name]) }}">
+          @csrf
+          @method('DELETE')
+        </form>
+        
       </ul>
       <!-- Dropdown -->
       @endauth

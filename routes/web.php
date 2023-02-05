@@ -53,6 +53,8 @@ Route::controller(UserController::class)->prefix('users')->name('users.')->group
     //パスワード変更
     Route::get('/{name}/password', 'password')->name('password')->middleware('auth');
     Route::patch('/{name}/password', 'passwordUpdate')->name('passwordUpdate')->middleware('auth');
+    //アカウント論理削除
+    Route::delete('/{name}/delete', 'accountDelete')->name('accountDelete')->middleware('auth');
     //マイページのいいねタブ
     Route::get('/{name}/likes', 'likes')->name('likes');
     //フォロー中、フォロワーの一覧

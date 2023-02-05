@@ -19,7 +19,7 @@
                 <div class="md-form">
                   <label for="name">ユーザー名</label>
                   <input class="form-control" type="text" id="name" name="name" required value="{{ old('name') }}">
-                  <small>英数字3〜16文字(登録後の変更はできません)</small>
+                  <small>英数字3〜16文字</small>
                 </div>
                 <div class="md-form">
                   <label for="email">メールアドレス</label>
@@ -39,7 +39,6 @@
               <div class="mt-0">
                 <a href="{{ route('login') }}" class="card-text mouseover">ログインはこちら</a>
               </div>
-              
             </div>
           </div>
         </div>

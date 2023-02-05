@@ -41,7 +41,7 @@
               <i class="fas fa-pen-nib mr-1"></i>記事を更新する
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-delete-{{ $article->id }}">
+            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#modal-del-{{ $article->id }}">
               <i class="far fa-trash-alt mr-1"></i>記事を削除する
             </a>
           </div>
@@ -50,7 +50,7 @@
       <!-- dropdown -->
 
       <!-- modal -->
-      <div id="modal-delete-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
+      <div id="modal-del-{{ $article->id }}" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">

@@ -146,6 +146,27 @@ class UserController extends Controller
         ]);
     }
     
+    //アカウント論理削除
+    public function accountDelete(string $name)
+    {
+        $user = User::where('name', $name)->first();
+
+        if (Storage::exists('public/profilePhoto/'. $user->profile_photo)) {
+            Storage::delete('public/profilePhoto/'. $user->profile_photo);
+        }
+        
+        $articles = $user->articles;
+        foreach($articles as $article) {
+            if (Storage::exists('public/image/'. $article->image_path)) {
+                Storage::delete('public/image/'. $article->image_path);
+            }
+        }
+        
+        $user->delete();
+        
+        return redirect("/");
+    }
+    
     //いいねした記事一覧用
     public function likes(string $name)
     {

@@ -7,7 +7,7 @@
   <div class="container">
     <div class="container-fluid px-2">
       <h3 class="h3 oper-headline">ユーザー登録</h3>
-      <p>ユーザー名は、英数字3～16文字で入力してください。登録後の変更はできません。</p>
+      <p>ユーザー名は、英数字3～16文字で入力してください。</p>
       <p>メールアドレス、パスワードを入力後、ユーザー登録ボタンを押してください。</p>
       <p class="oper-img-size">
         <img src="{{ secure_asset('img/register.png') }}" alt="ユーザー登録画面">

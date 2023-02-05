@@ -13,14 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('body');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('image_path')->nullable();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
             //$table->softDeletes();
         });
     }
@@ -32,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::table('users', function (Blueprint $table) {
+            //$table->dropSoftDeletes();
+        });
     }
 };
