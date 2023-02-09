@@ -29,8 +29,8 @@
             <div class="ml-2">
               <a href="{{ route('users.show', ['name' => $article->user->name]) }}" class="text-dark">
                 <div class="font-weight-bold">{{ $article->user->name }}</div>
+                <div class="font-weight-lighter card-text">{{ $article->created_at->format('Y/m/d H:i') }}</div>
               </a>
-              <div class="font-weight-lighter card-text">{{ $article->created_at->format('Y/m/d H:i') }}</div>
             </div>
           </div>
 

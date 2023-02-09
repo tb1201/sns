@@ -27,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo');
-            $table->text('self_introduction');
+            $table->dropColumn('profile_photo');
+            $table->dropColumn('self_introduction');
         });
     }
 };

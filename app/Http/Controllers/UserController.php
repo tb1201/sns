@@ -146,7 +146,7 @@ class UserController extends Controller
         ]);
     }
     
-    //アカウント論理削除
+    //アカウント削除
     public function accountDelete(string $name)
     {
         $user = User::where('name', $name)->first();
