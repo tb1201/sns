@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Iwate Coffee Shop Exploration')
+@section('title', 'Iwate Coffee Shop Exploration | 岩手コーヒーショップ探訪')
 
 @section('content')
   @include('nav')

@@ -4,10 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--OGP-->
+    <meta property="og:url" content="https://myapp1210.mydns.jp/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Iwate Coffee Shop Exploration | 岩手コーヒーショップ探訪" />
+    <meta property="og:description" content="岩手県盛岡市は、2020年のコーヒー消費量が全国5位。岩手県内のおすすめのカフェ、喫茶店などを投稿することができるサイトです。" />
+    <meta property="og:site_name" content="Iwate Coffee Shop Exploration | 岩手コーヒーショップ探訪" />
+    <meta property="og:image" content="https://myapp1210.mydns.jp/img/toppage.png" />
+    <!--OGP-->
     <title>
     @yield('title')
     </title>
-    <meta name="description" content="岩手県盛岡市は、2020年のコーヒー消費量が全国5位。岩手県内のおすすめのカフェ、喫茶店などを投稿することができるサイト。">
+    <meta name="description" content="岩手県盛岡市は、2020年のコーヒー消費量が全国5位。岩手県内のおすすめのカフェ、喫茶店などを投稿することができるサイトです。">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
